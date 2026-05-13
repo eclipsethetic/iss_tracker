@@ -10,7 +10,7 @@ def get_data(link='http://api.open-notify.org/iss-now.json'):
             response = requests.get(link)
             break
         except:
-            time.sleep(2)
+            time.sleep(1)
             continue
     _data = response.json()
 
@@ -34,9 +34,9 @@ def iss_on_map():
     iss.shape('pics/new_iss.gif')
         
     while True:
-        x = float(get_data()[0])
-        y = float(get_data()[1])
-        time.sleep(1)
+        x = float(get_data()[1])
+        y = float(get_data()[0])
+        time.sleep(3)
         iss.goto(x, y)
     
     
